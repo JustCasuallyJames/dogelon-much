@@ -1,12 +1,15 @@
 import React, {Component} from 'react'
 import '../styles/Store.scss'
-import {ReactComponent as backgroundPic} from '../pictures/Background.png';
+import InfoBar from './infobar';
+import {ReactComponent as ItemBox} from '../pictures/Item Box.png'
 
 class Store extends Component {
     render() {
         return(
-            <backgroundPic></backgroundPic>
-            
+            <div className="background">
+                <InfoBar/>
+                <ItemBox/>
+            </div> 
         );
     }
 }

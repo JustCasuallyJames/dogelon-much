@@ -1,0 +1,45 @@
+#info-bar {
+    top: 0;
+    left: 0;
+}
+
+#doge-logo {
+    position: absolute;
+    width: 86px;
+    height: 88px;
+    left: 32px;
+    top: 34px;
+
+}
+
+#goal-text {
+    position: absolute;
+    //width: 275px;
+    //height: 28px;
+    left: 140px;
+    top: 64px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
+}
+
+#cash-balance {
+    position: absolute;
+    //width: 192px;
+    height: 56px;
+    right: 120px;
+    top: 58px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+
+    color: #F8BF1A;
+}

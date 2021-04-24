@@ -26,11 +26,11 @@ class Charts extends Component {
             text:"Elon Simulator"
             },
             animationEnabled: true,
-            animationDuration: 60000,
+            animationDuration: 10000,
             charts: [{
                 data: [{
                     type: "line",
-                    dataPoints: this.generateDataPoints(60)
+                    dataPoints: this.generateDataPoints(100)
                 }]
             }],   
             rangeSelector: {
@@ -40,7 +40,11 @@ class Charts extends Component {
                     endValue: 60,
                 }
             },
-
+            navigator:{
+            },
+            backgroundColor: "",
+            theme: "light1"
+            
         };
         const containerProps = {
             width: "100%",
