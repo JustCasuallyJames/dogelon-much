@@ -10,14 +10,14 @@ class Charts extends Component {
         this.generateDataPoints = this.generateDataPoints.bind(this);
         }
         generateDataPoints(noOfDps) {
-        var xVal = 0, yVal = 100;
-        var dps = [];
-        for(var i = 0; i <= noOfDps; i++) {
-            yVal = yVal +  Math.round(5 + Math.random() * (-5-5));
-            dps.push({x: xVal, y: yVal});  
-            xVal++;
-        }
-        return dps;
+            var xVal = 0, yVal = 100;
+            var dps = [];
+            for(var i = 0; i <= noOfDps; i++) {
+                yVal = yVal +  Math.round(5 + Math.random() * (-5-5));
+                dps.push({x: xVal, y: yVal});  
+                xVal++;
+            }
+            return dps;
         }
         
         render() {
@@ -26,7 +26,7 @@ class Charts extends Component {
             text:"Elon Simulator"
             },
             animationEnabled: true,
-            animationDuration: 1000,
+            animationDuration: 60000,
             charts: [{
                 data: [{
                     type: "line",
