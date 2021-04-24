@@ -1,13 +1,15 @@
 import './App.scss';
 import Charts from './components/Charts';
+import Store from './components/Store';
+
 
 function App() {
   return (
-    <div className="App">
-      <Charts></Charts>
-      <header className="App-header">
-        
-      </header>
+    <div>
+      <div className="store-background">
+        <Store></Store>
+      </div>
+      {/* <Charts></Charts> */}
       
     </div>
   );

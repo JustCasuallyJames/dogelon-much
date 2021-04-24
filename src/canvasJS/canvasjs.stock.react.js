@@ -7,7 +7,6 @@ CanvasJS is a commercial product which requires purchase of license. Without a c
 https://canvasjs.com/license/
 
 */
-
 var React = require('react');
 var CanvasJS = require('./canvasjs.stock.min.js');
 CanvasJS = CanvasJS.Chart ? CanvasJS : window.CanvasJS;
