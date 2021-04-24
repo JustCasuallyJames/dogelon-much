@@ -8,19 +8,19 @@ class Charts extends Component {
     constructor(props) {
         super(props);
         this.generateDataPoints = this.generateDataPoints.bind(this);
+    }
+    generateDataPoints(noOfDps) {
+        var xVal = 0, yVal = 100;
+        var dps = [];
+        for(var i = 0; i <= noOfDps; i++) {
+            yVal = yVal +  Math.round(5 + Math.random() * (-5-5));
+            dps.push({x: xVal, y: yVal});  
+            xVal++;
         }
-        generateDataPoints(noOfDps) {
-            var xVal = 0, yVal = 100;
-            var dps = [];
-            for(var i = 0; i <= noOfDps; i++) {
-                yVal = yVal +  Math.round(5 + Math.random() * (-5-5));
-                dps.push({x: xVal, y: yVal});  
-                xVal++;
-            }
-            return dps;
-        }
+        return dps;
+    }
         
-        render() {
+    render() {
         const options = {
             title:{
             text:"Elon Simulator"
@@ -40,16 +40,14 @@ class Charts extends Component {
                     endValue: 60,
                 }
             },
-            navigator:{
-            }
-            
+
         };
         const containerProps = {
             width: "100%",
             height: "450px",
             margin: "auto"
         };
-        
+
         return (
             <div> 
             <div>
@@ -59,7 +57,9 @@ class Charts extends Component {
             </div>
             </div>
         );
-        }
+    }
+
+        /* App.js */
 }
 export default Charts;
 
