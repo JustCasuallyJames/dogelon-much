@@ -6,6 +6,7 @@ import { ReactComponent as Stars } from '../styles/graphics/stars.svg';
 import { ReactComponent as LaunchButton } from '../styles/graphics/launch-button.svg';
 import { ReactComponent as Grass } from '../styles/graphics/grass.svg';
 import InfoBar from './infobar';
+import NavBar from './navbar';
 
 
 const CommandCenter = () => {
@@ -18,6 +19,7 @@ const CommandCenter = () => {
     return (
         <div id="background-gradient">
                 <InfoBar></InfoBar>
+                <NavBar/>
                 
                 <button onClick={handleClickGame} id="stock-button">Stonks</button>
                 <Stars id="stars"></Stars>
