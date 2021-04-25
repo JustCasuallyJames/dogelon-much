@@ -34,12 +34,7 @@ class Store extends Component {
             isBoughtRightStructure: false,
             isBoughtLeftStructure: false,
             isBoughtFuelTank: false,
-<<<<<<< HEAD
-            name: "",
-            numFound: false
-=======
             balance : 3700
->>>>>>> 7890827bf39ca44c996f17ea0b7678df70b587f2
         }
 
         //this binding is needed to make the this work in the callback
