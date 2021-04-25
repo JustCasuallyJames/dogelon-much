@@ -18,14 +18,10 @@ function App() {
       
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
-          <Redirect exact from="/" to="command-center"/>
-          <Route name="command-center" path="/command-center">
-            <CommandCenter userId={userId} setUserId={setUserId}/>  
-          </Route> 
+          <Route exact path="/" component={Login}></Route>
+          <Route name="command-center" path="/command-center" component={CommandCenter}></Route> 
           <Route name="stonk-game" path="/stonk-game" component={Game}></Route>
-          <Route name="store" path="/store">
-            <Store userId={userId} setUserId={setUserId}/>
-          </Route>
+          <Route name="store" path="/store" component={Store}></Route>
         </Switch>
       </BrowserRouter>
     
