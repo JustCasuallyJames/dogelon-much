@@ -31,7 +31,8 @@ class Store extends Component {
             isBoughtLeftStructure: false,
             isBoughtFuelTank: false,
             name: "",
-            docId: 0
+            docId: 0,
+            numFound: false
         }
 
         //this binding is needed to make the this work in the callback
@@ -44,83 +45,134 @@ class Store extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    findNum=(num, price, item)=>{
+        if (this.state.docId != 0){
+            var rocketRef = db.collection("users").doc(this.state.docId);
+            rocketRef.get().then((doc) => {
+                if (doc.exists) {
+                    for(var i = 0; i < doc.data().notPurchased.length; i++){
+                        if (num == doc.data().notPurchased[i] && doc.data().money >= price){
+                            rocketRef.update({
+                                notPurchased: firebase.firestore.FieldValue.arrayRemove(num),
+                                money: firebase.firestore.FieldValue.increment(-1 * price)
+                            });
+                            if (item == "rocket"){
+                                this.setState(state => ({
+                                    isBoughtRocket: true
+                                }));
+                            }else if(item == "left thruster"){
+                                this.setState(state => ({
+                                    isBoughtLeftThruster: true
+                                }));
+                            }else if(item == "left structure"){
+                                this.setState(state => ({
+                                    isBoughtLeftStructure: true
+                                }));
+                            }else if(item == "right structure"){
+                                this.setState(state => ({
+                                    isBoughtRightStructure: true
+                                }));
+                            }else if(item == "right thruster"){
+                                this.setState(state => ({
+                                    isBoughtRightThruster: true
+                                }));
+                            }else if(item == "fuel tank"){
+                                this.setState(state => ({
+                                    isBoughtFuelTank: true
+                                }));
+                            }
+                            return true;
+                        }
+                    }
+                    return false;
+                } 
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
+    }
     handleClickRocket() {
-        this.setState(state => ({
-            isBoughtRocket: true
-        }));
-        var rocketRef = db.collection("users").doc(this.state.docId);
 
-        // Set the "capital" field of the city 'DC'
-        // Atomically remove a region from the "regions" array field.
-        rocketRef.update({
-            notPurchased: firebase.firestore.FieldValue.arrayRemove(1)
-        });
+        if (this.state.docId != 0){
+            var rocketRef = db.collection("users").doc(this.state.docId);
+            rocketRef.get().then((doc) => {
+                if (doc.exists) {
+                    this.findNum(1,100, "rocket");
+                } 
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
     }
 
     handleClickLeftThruster() {
-        this.setState(state => ({
-            isBoughtLeftThruster: true
-        }));
-        var leftThrusterRef = db.collection("users").doc(this.state.docId);
 
-        // Set the "capital" field of the city 'DC'
-        // Atomically remove a region from the "regions" array field.
-        leftThrusterRef.update({
-            notPurchased: firebase.firestore.FieldValue.arrayRemove(2)
-        });
+        if (this.state.docId != 0){
+            var leftThrusterRef = db.collection("users").doc(this.state.docId);
+            leftThrusterRef.get().then((doc) => {
+                if (doc.exists) {
+                    this.findNum(2,100,"left thruster");
+                } 
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
     }
 
     handleClickLeftStructure() {
-        this.setState(state => ({
-            isBoughtLeftStructure: true
-        }));
-        var rightPlatformRef = db.collection("users").doc(this.state.docId);
 
-        // Set the "capital" field of the city 'DC'
-        // Atomically remove a region from the "regions" array field.
-        rightPlatformRef.update({
-            notPurchased: firebase.firestore.FieldValue.arrayRemove(3)
-        });
+        if (this.state.docId != 0){
+            var leftStructureRef = db.collection("users").doc(this.state.docId);
+            leftStructureRef.get().then((doc) => {
+                if (doc.exists) {
+                    this.findNum(3,100,"left structure");
+                } 
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
     }
 
     handleClickRightStructure() {
-        this.setState(state => ({
-            isBoughtRightStructure: true
-        }));
-        var rightStructureRef = db.collection("users").doc(this.state.docId);
 
-        // Set the "capital" field of the city 'DC'
-        // Atomically remove a region from the "regions" array field.
-        rightStructureRef.update({
-            notPurchased: firebase.firestore.FieldValue.arrayRemove(4)
-        });
+        if (this.state.docId != 0){
+            var rightStructureRef = db.collection("users").doc(this.state.docId);
+            rightStructureRef.get().then((doc) => {
+                if (doc.exists) {
+                    this.findNum(4,100, "right structure");
+                } 
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
     }
 
     handleClickRightThruster() {
-        this.setState(state => ({
-            isBoughtRightThruster: true
-        }));
-        var leftPlatformRef = db.collection("users").doc(this.state.docId);
 
-        // Set the "capital" field of the city 'DC'
-        // Atomically remove a region from the "regions" array field.
-        leftPlatformRef.update({
-            notPurchased: firebase.firestore.FieldValue.arrayRemove(5)
-        });
+        if (this.state.docId != 0){
+            var rightThrusterRef = db.collection("users").doc(this.state.docId);
+            rightThrusterRef.get().then((doc) => {
+                if (doc.exists) {
+                    this.findNum(5,100,"right thruster");
+                } 
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
     }
 
     handleClickFuelTank() {
-        this.setState(state => ({
-            isBoughtFuelTank: true
-        }));
-        var fuelTankRef = db.collection("users").doc(this.state.docId);
 
-        // Set the "capital" field of the city 'DC'
-        // Atomically remove a region from the "regions" array field.
-        fuelTankRef.update({
-            notPurchased: firebase.firestore.FieldValue.arrayRemove(6),
-
-        });
+        if (this.state.docId != 0){
+            var fuelTankRef = db.collection("users").doc(this.state.docId);
+            fuelTankRef.get().then((doc) => {
+                if (doc.exists) {
+                    this.findNum(6,100, "fuel tank");
+                } 
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+        }
     }
 
     handleText=e=>{
@@ -136,7 +188,7 @@ class Store extends Component {
             notPurchased: [1,2,3,4,5,6]
         }).then((docRef) => {
             this.setState({
-                docId:docRef.id
+                docId: docRef.id
             })
         })
     }
