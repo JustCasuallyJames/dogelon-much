@@ -1,9 +1,9 @@
 import './App.scss';
-import Charts from './components/Charts';
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import CommandCenter from './components/commandCenter';
 import Game from './components/game';
+import Store from './components/Store'
 //<Charts></Charts>
 
 function App() {
@@ -22,8 +22,7 @@ function App() {
     </div>
   );
 }
-//const CommandCenter = () => <h1>Command Center</h1>;
-//const Game = () => <h1>Game</h1>;
+
 
 export default App;
 

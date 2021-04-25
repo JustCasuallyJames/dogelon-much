@@ -8,23 +8,26 @@ import { ReactComponent as Grass } from '../styles/graphics/grass.svg';
 import InfoBar from './infobar';
 import NavBar from './navbar';
 
-
 const CommandCenter = () => {
     const history = useHistory();
+    
+    const handleClickGame = (foo) => {
+        history.push(foo)
+    }
 
-    const handleClickGame = () => {
+    const HandleTheGame = () => {
         history.push('/stonk-game')
     }
 
     return (
         <div id="background-gradient">
-                <InfoBar></InfoBar>
-                <NavBar/>
-                
-                <button onClick={handleClickGame} id="stock-button">Stonks</button>
-                <Stars id="stars"></Stars>
-                <LaunchButton id="launch-button"></LaunchButton>
-                <Grass id="grass"></Grass>
+            <InfoBar></InfoBar>
+            <NavBar/>
+            <button onClick={HandleTheGame}></button>
+            <button onClick={() => handleClickGame('/stonk-game')} id="stock-button">Stonks</button>
+            <Stars id="stars"></Stars>
+            <LaunchButton id="launch-button"></LaunchButton>
+            <Grass id="grass"></Grass>
         </div>
     )
 }
