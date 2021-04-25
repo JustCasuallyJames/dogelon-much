@@ -28,7 +28,7 @@ const Login = () => {
             </p>
             <p className="headline" id="third">UP FOR THE CHALLENGE?</p>
             <div className="headline" id="fourth">
-                <input id="username" placeholder="Username" 
+                <input id="username" placeholder="Username" autocomplete="off"
                     onChange={event => setName(event.target.value)}/>
                 <button id="enterUser" onClick={submitName}className="btn btn-primary">START</button>
             </div>
