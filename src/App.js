@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import CommandCenter from './components/commandCenter';
 import Game from './components/game';
 import Store from './components/Store'
-//<Charts></Charts>
+
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={CommandCenter}></Route>
           <Route path="/stonk-game" component={Game}></Route>
+          <Route path="/store" component={Store}></Route>
         </Switch>
       </BrowserRouter>
     </div>
