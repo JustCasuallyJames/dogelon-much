@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/elon-simulator/static/css/main.31b29363.chunk.css",
-    "main.js": "/elon-simulator/static/js/main.0989bc27.chunk.js",
-    "main.js.map": "/elon-simulator/static/js/main.0989bc27.chunk.js.map",
+    "main.js": "/elon-simulator/static/js/main.cd82961a.chunk.js",
+    "main.js.map": "/elon-simulator/static/js/main.cd82961a.chunk.js.map",
     "runtime-main.js": "/elon-simulator/static/js/runtime-main.20caa99b.js",
     "runtime-main.js.map": "/elon-simulator/static/js/runtime-main.20caa99b.js.map",
     "static/js/2.1079aabc.chunk.js": "/elon-simulator/static/js/2.1079aabc.chunk.js",
@@ -37,6 +37,6 @@
     "static/js/runtime-main.20caa99b.js",
     "static/js/2.1079aabc.chunk.js",
     "static/css/main.31b29363.chunk.css",
-    "static/js/main.0989bc27.chunk.js"
+    "static/js/main.cd82961a.chunk.js"
   ]
 }
