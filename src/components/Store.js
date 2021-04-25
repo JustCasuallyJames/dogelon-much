@@ -17,6 +17,8 @@ import {ReactComponent as GrayRightStructure} from '../styles/graphics/Gray-Righ
 import {ReactComponent as GrayRightThruster} from '../styles/graphics/Gray-Right-Booster.svg';
 import {ReactComponent as GrayFuelTank} from '../styles/graphics/Gray-Fuel-Tank.svg';
 
+import NavBar from './navbar';
+
 class Store extends Component {
     constructor(props){
         super(props);
@@ -78,7 +80,8 @@ class Store extends Component {
         return(
             <div className="background">
                 <InfoBar/>
-                <div>  
+                <NavBar></NavBar>
+                <div id="parts-container">  
                     <a onClick={this.handleClickRocket} id="atag">
                         {this.state.isBoughtRocket ? <GrayRocketShip className="itemBox"/> : <RocketShip className="itemBox"/>}
                     </a>

@@ -8,6 +8,7 @@ import SadElon from '../styles/graphics/sad_Elon.png';
 import HappyElonUp from '../styles/graphics/happy_Elon up.png'
 import {ReactComponent as DogeClicker} from '../styles/graphics/doge-click.svg';
 import { ReactComponent as DogeCoin } from '../styles/graphics/dogecoin.svg';
+import NavBar from './navbar';
 
 //souds
 //import useSound from 'use-sound';
@@ -22,8 +23,14 @@ const generateRandom = () => {
     var min = 0.01;
     var random = (Math.random() * (max-min) + min).toFixed(2)
     console.log(random);
+
+    crashVal = random;
+
     return random;
 } 
+
+const crashChances = [1,1,1,1,1,1,1,1,1,2]; 
+var crashVal = 0;
 
 class Game extends React.Component {
 
@@ -42,6 +49,7 @@ class Game extends React.Component {
             playAgain: false,
             buyAmount: 5,
             crashed: "",
+            insider: " "
             
         }
         this.animateMusk = this.animateMusk.bind(this);
@@ -50,9 +58,21 @@ class Game extends React.Component {
         this.sellAll = this.sellAll.bind(this);
         this.buyCoin = this.buyCoin.bind(this);
         this.calculateProfit = this.calculateProfit.bind(this);
-        this.playAgain = this.playAgain.bind(this);
+        this.getInsider = this.getInsider.bind(this);
     }
     
+    getInsider(crashPrice) {
+        var crashChanceVal =  crashChances[Math.floor(Math.random() * crashChances.length)];
+        var insiderInfo = "";
+        console.log(crashChanceVal);
+        if (crashChanceVal == 2) {
+            insiderInfo = "Insider Info: " + "\n" + " Crash at $" + String(crashPrice);
+        } else {
+            insiderInfo = "";
+        }
+        this.setState({insider: insiderInfo});
+    }
+
     calculateProfit() {
         var newProfit = ((this.state.dogeCoins * this.state.price) - this.state.totalCost).toFixed(2);
         this.setState({profit: newProfit})
@@ -97,10 +117,12 @@ class Game extends React.Component {
                     profit: 0.01,
                     totalCost: 0.00,
                     buyEnable: true,
-                    elon: HappyElon
+                    elon: HappyElon,
+                    crashed: ""
                 }
             )
         }
+        this.getInsider(crashVal);
         this.setState({again: "again"});
         this.interval = setInterval(() => {
             var newPrice = +(this.state.price + 0.01).toFixed(3);
@@ -126,22 +148,6 @@ class Game extends React.Component {
         }
     }
 
-    playAgain() {
-        clearInterval(this.interval);
-        this.setState(
-            {
-                limitValue : generateRandom(),
-                dogeCoins: 5,
-                price : 0.01,
-                profit: 0.01,
-                totalCost: 0.00,
-                buyEnable: true,
-                elon: HappyElon
-            }
-        )
-        this.start();
-    }
-
     render() {
         return(
             <div id="background-gradient">
@@ -151,9 +157,9 @@ class Game extends React.Component {
                     <div id="goal-text">GET ELON TO THE MOON</div>
                     <div id="cash-balance">$ {this.state.balance}</div>
                 </div>
-
                 <div id="game-container">
                     <div id="stats">
+                        <p id="doge-price" className="insider">{this.state.insider}</p>
                         <p id="doge-price">Price: $ {this.state.price} <nobr id="crashed">{this.state.crashed}</nobr> </p>
                         <p id="doge-price">Dogecoins: {this.state.dogeCoins}</p>
                         <p id="doge-price">Profit: {this.state.profit}</p>
@@ -174,6 +180,7 @@ class Game extends React.Component {
                         </button>
                     </div>
                 </div>
+                <NavBar/>
 
             </div>
         )

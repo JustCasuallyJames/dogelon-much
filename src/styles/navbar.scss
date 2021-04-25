@@ -1,0 +1,30 @@
+nobr {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 28px;
+    color: white;
+
+    margin: 20px;
+}
+
+#nav-bar {
+    position: relative;
+    width: 100vw;
+    top: 130px;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+     user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
+    padding: 10px;
+    border-bottom: 5px solid white;
+}
+
+#cmd-btn {
+    margin-left: 100px;
+}

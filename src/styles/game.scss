@@ -43,11 +43,12 @@
 }
 
 #game-container {
-    top: 50%;
-    transform: translateY(-50%);
+    top: 60%;
+    transform: translateY(-60%);
     width: 100%;
     position: absolute;
     margin: 0 auto;
+    z-index: 0;
 }
 
 #doge-price {
@@ -76,8 +77,8 @@
     top: 50px;
 }
 
-body {
-    //overflow: hidden;
+.insider {
+    white-space: pre-line;
 }
 
 #game-btns {
@@ -87,10 +88,11 @@ body {
 }
 
 #stats {
+    top: 100px;
     position: relative;
-    //left: 50%;
-    //transform: translateX(-50%);
     text-align: center;
+    float: left;
+    margin-left: 50px;
 }
 
 #crashed {

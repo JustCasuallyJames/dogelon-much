@@ -4,13 +4,19 @@
     mix-blend-mode: normal;
     min-width: 100vh;
     min-height: 100vh;
+    overflow: scroll;
 }
 
 #atag{
     cursor:pointer;
-    padding-left:8rem;
-    padding-top:4rem;
-    padding-bottom:4rem;
+    padding: 4rem;
     
     
 }
+
+#parts-container {
+    position: relative;
+    top: 130px;
+    margin-top: 20px;
+}
+
