@@ -1,5 +1,4 @@
 import './App.scss';
-import Charts from './components/Charts';
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import CommandCenter from './components/commandCenter';

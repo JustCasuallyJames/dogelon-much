@@ -2,6 +2,15 @@
 .background{
     background: linear-gradient(180deg, #13191E 0%, #2F4858 52.6%, #006776 100%), #2F4858;
     mix-blend-mode: normal;
-    min-width: 100vw;
+    min-width: 100vh;
     min-height: 100vh;
+}
+
+#atag{
+    cursor:pointer;
+    padding-left:8rem;
+    padding-top:4rem;
+    padding-bottom:4rem;
+    
+    
 }

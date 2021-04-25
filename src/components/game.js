@@ -1,7 +1,7 @@
 import '../styles/game.scss';
 import { useHistory } from 'react-router-dom';
 import React, { useState } from 'react';
-import Charts from './Charts';
+// import Charts from './Charts';
 import InfoBar from './infobar';
 
 
@@ -26,7 +26,7 @@ const Game = () => {
             <InfoBar></InfoBar>
             <p>{dogePrice}</p>
             <button onClick={test} id="buy-button">Buy</button>
-            <Charts></Charts>
+            {/* <Charts></Charts> */}
             <canvas></canvas>
         </div>
     )
