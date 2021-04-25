@@ -9,14 +9,12 @@ import Store from './components/Store'
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Switch>
           <Route exact path="/" component={CommandCenter}></Route>
-          <Route exact path="/stonk-game" component={Game}></Route>
+          <Route path="/stonk-game" component={Game}></Route>
         </Switch>
-      </BrowserRouter> */}
-      <Store></Store>
-      
+      </BrowserRouter>
     </div>
   );
 }

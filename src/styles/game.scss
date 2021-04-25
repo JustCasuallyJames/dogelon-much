@@ -1,10 +1,56 @@
-#buy-button {
+#background-gradient {
+    min-height: 100vh;
+    min-width: 100vh;
+    background: linear-gradient(180deg, #13191E 0%, #2F4858 52.6%, #006776 100%), #2F4858;
+    mix-blend-mode: normal;
+}
 
-width: 200px;
-height: 56px;
-background: #37A360;
-border-radius: 16px;
+#doge-clicker {
+    width: 400px;
+}
 
-bottom: 0px;
+#elon {
+    height: 400px;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
 
+#game-container {
+    bottom: 50px;
+    width: 100%;
+    position: absolute;
+}
+
+#doge-price {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+
+    color: #F8BF1A;
+}
+
+#start-btn-container {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    
+}
+
+button {
+    outline: none;
+}
+
+#start-menu {
+    margin: 0 auto;
+}
+
+body {
+    overflow: hidden;
 }
