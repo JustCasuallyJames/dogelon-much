@@ -10,15 +10,19 @@ import InfoBar from './infobar';
 const CommandCenter = () => {
     const history = useHistory();
     
-    const handleClickGame = () => {
-        history.push('/stonks-game')
+    const handleClickGame = (foo) => {
+        history.push(foo)
+    }
+
+    const HandleTheGame = () => {
+        history.push('/stonk-game')
     }
 
     return (
         <div id="background-gradient">
             <InfoBar></InfoBar>
-            
-            <button onClick={handleClickGame} id="stock-button">Stonks</button>
+            <button onClick={HandleTheGame}></button>
+            <button onClick={() => handleClickGame('/stonk-game')} id="stock-button">Stonks</button>
             <Stars id="stars"></Stars>
             <LaunchButton id="launch-button"></LaunchButton>
             <Grass id="grass"></Grass>

@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={CommandCenter}></Route>
-          <Route path="/stonks-game" component={Game}></Route>
+          <Route path="/stonk-game" component={Game}></Route>
         </Switch>
       </BrowserRouter>
     </div>

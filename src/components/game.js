@@ -40,6 +40,7 @@ class Game extends React.Component {
         this.sellAll = this.sellAll.bind(this);
         this.buyCoin = this.buyCoin.bind(this);
         this.calculateProfit = this.calculateProfit.bind(this);
+        this.playAgain = this.playAgain.bind(this);
     }
     
     calculateProfit() {
@@ -58,6 +59,7 @@ class Game extends React.Component {
 
     buyCoin() {
         if (this.state.buyEnable == true) {
+            if (Number(this.state.balance))
             var cost = this.state.price;
             var newBalance = +(this.state.balance - cost).toFixed(2);
             var newTotalCost = this.state.totalCost + cost;
@@ -69,6 +71,7 @@ class Game extends React.Component {
         if (this.state.price == this.state.limitValue) {
             clearInterval(this.interval);
             this.setState({buyEnable: false})
+
         }
     }
 
@@ -84,7 +87,32 @@ class Game extends React.Component {
     }
 
     sellAll() {
+        if (this.state.buyEnable == true) {
+            clearInterval(this.interval);
+            
+            var newBalance = (Number(this.state.balance) + Number(this.state.profit)).toFixed(2);
+            this.setState(
+                {
+                    balance: newBalance,
+                    buyEnable: false
+                }
+            )
+        }
+    }
 
+    playAgain() {
+        clearInterval(this.interval);
+        this.setState(
+            {
+                limitValue : generateRandom(),
+                dogeCoins: 5,
+                price : 0.01,
+                profit: 0.01,
+                totalCost: 0.00,
+                buyEnable: true
+            }
+        )
+        this.start();
     }
 
     render() {
@@ -110,7 +138,7 @@ class Game extends React.Component {
                     </button>
                     <button class="btn btn-info btn-lg"
                         id="play-again-btn" onClick={this.playAgain}>
-                            Play Again
+                        Play Again
                     </button>
                 </div>
 
