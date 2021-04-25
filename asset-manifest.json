@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/elon-simulator/static/css/main.6ab3e3e7.chunk.css",
-    "main.js": "/elon-simulator/static/js/main.c7d60d9d.chunk.js",
-    "main.js.map": "/elon-simulator/static/js/main.c7d60d9d.chunk.js.map",
+    "main.js": "/elon-simulator/static/js/main.82525e16.chunk.js",
+    "main.js.map": "/elon-simulator/static/js/main.82525e16.chunk.js.map",
     "runtime-main.js": "/elon-simulator/static/js/runtime-main.20caa99b.js",
     "runtime-main.js.map": "/elon-simulator/static/js/runtime-main.20caa99b.js.map",
-    "static/js/2.58af8d2c.chunk.js": "/elon-simulator/static/js/2.58af8d2c.chunk.js",
-    "static/js/2.58af8d2c.chunk.js.map": "/elon-simulator/static/js/2.58af8d2c.chunk.js.map",
+    "static/js/2.9e23693c.chunk.js": "/elon-simulator/static/js/2.9e23693c.chunk.js",
+    "static/js/2.9e23693c.chunk.js.map": "/elon-simulator/static/js/2.9e23693c.chunk.js.map",
     "static/js/3.2ef65efc.chunk.js": "/elon-simulator/static/js/3.2ef65efc.chunk.js",
     "static/js/3.2ef65efc.chunk.js.map": "/elon-simulator/static/js/3.2ef65efc.chunk.js.map",
     "index.html": "/elon-simulator/index.html",
     "static/css/main.6ab3e3e7.chunk.css.map": "/elon-simulator/static/css/main.6ab3e3e7.chunk.css.map",
-    "static/js/2.58af8d2c.chunk.js.LICENSE.txt": "/elon-simulator/static/js/2.58af8d2c.chunk.js.LICENSE.txt",
+    "static/js/2.9e23693c.chunk.js.LICENSE.txt": "/elon-simulator/static/js/2.9e23693c.chunk.js.LICENSE.txt",
     "static/media/Fuel-Tank.17780813.svg": "/elon-simulator/static/media/Fuel-Tank.17780813.svg",
     "static/media/Gray-Fuel-Tank.6066acd2.svg": "/elon-simulator/static/media/Gray-Fuel-Tank.6066acd2.svg",
     "static/media/Gray-Left-Booster.bfd845bf.svg": "/elon-simulator/static/media/Gray-Left-Booster.bfd845bf.svg",
@@ -38,8 +38,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.20caa99b.js",
-    "static/js/2.58af8d2c.chunk.js",
+    "static/js/2.9e23693c.chunk.js",
     "static/css/main.6ab3e3e7.chunk.css",
-    "static/js/main.c7d60d9d.chunk.js"
+    "static/js/main.82525e16.chunk.js"
   ]
 }
