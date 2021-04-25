@@ -55,6 +55,7 @@ class Store extends Component {
                         if (num == doc.data().notPurchased[i] && doc.data().money >= price){
                             rocketRef.update({
                                 notPurchased: firebase.firestore.FieldValue.arrayRemove(num),
+                                purchased: firebase.firestore.FieldValue.arrayUnion(num),
                                 money: firebase.firestore.FieldValue.increment(-1 * price)
                             });
                             if (item == "rocket"){
@@ -65,7 +66,7 @@ class Store extends Component {
                                 this.setState(state => ({
                                     isBoughtLeftThruster: true
                                 }));
-                            }else if(item == "left structure"){
+                            }else if(item == "left structure"){ 
                                 this.setState(state => ({
                                     isBoughtLeftStructure: true
                                 }));
@@ -186,7 +187,8 @@ class Store extends Component {
         var id = db.collection("users").add({
             username: this.state.name,
             money: 100,
-            notPurchased: [1,2,3,4,5,6]
+            notPurchased: [1,2,3,4,5,6],
+            purchased: []
         }).then((docRef) => {
             // this.setState({
             //     docId: docRef.id
