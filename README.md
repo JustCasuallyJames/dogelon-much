@@ -1,4 +1,4 @@
-# elon-simulator
+# dogelon much
 
 ## Inspiration
 We were inspired by the recent dogecoin craze and how Elon Musk always praises it on social media and the popular web game Cookie Clicker.
