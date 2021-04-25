@@ -40,13 +40,9 @@ const CommandCenter = () => {
             <NavBar/>
             <LaunchButton id="launch-button" onClick={launch}></LaunchButton>
             <Grass id="grass"></Grass>
-<<<<<<< HEAD
-
-=======
             <SpaceShuttleOff id="shuttleOff" style={{opacity: fakeOpacity, bottom: botVal}}></SpaceShuttleOff>
             <SpaceShuttleOn id="shuttleOn" style={{opacity: fireOpacity, bottom: botVal}}></SpaceShuttleOn>
             <Platforms id="platforms"></Platforms>
->>>>>>> 7890827bf39ca44c996f17ea0b7678df70b587f2
         </div>
     )
 }

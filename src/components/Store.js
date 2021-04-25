@@ -94,75 +94,6 @@ class Store extends Component {
         }
     }
     handleClickRocket() {
-<<<<<<< HEAD
-
-        if (this.props.userId != 0){
-            var rocketRef = db.collection("users").doc(this.props.userId);
-            rocketRef.get().then((doc) => {
-                if (doc.exists) {
-                    this.findNum(1,100, "rocket");
-                } 
-            }).catch((error) => {
-                console.log("Error getting document:", error);
-            });
-        }
-    }
-
-    handleClickLeftThruster() {
-
-        if (this.props.userId != 0){
-            var leftThrusterRef = db.collection("users").doc(this.props.userId);
-            leftThrusterRef.get().then((doc) => {
-                if (doc.exists) {
-                    this.findNum(2,100,"left thruster");
-                } 
-            }).catch((error) => {
-                console.log("Error getting document:", error);
-            });
-        }
-    }
-
-    handleClickLeftStructure() {
-
-        if (this.props.userId != 0){
-            var leftStructureRef = db.collection("users").doc(this.props.userId);
-            leftStructureRef.get().then((doc) => {
-                if (doc.exists) {
-                    this.findNum(3,100,"left structure");
-                } 
-            }).catch((error) => {
-                console.log("Error getting document:", error);
-            });
-        }
-    }
-
-    handleClickRightStructure() {
-
-        if (this.props.userId != 0){
-            var rightStructureRef = db.collection("users").doc(this.props.userId);
-            rightStructureRef.get().then((doc) => {
-                if (doc.exists) {
-                    this.findNum(4,100, "right structure");
-                } 
-            }).catch((error) => {
-                console.log("Error getting document:", error);
-            });
-        }
-    }
-
-    handleClickRightThruster() {
-
-        if (this.props.userId != 0){
-            var rightThrusterRef = db.collection("users").doc(this.props.userId);
-            rightThrusterRef.get().then((doc) => {
-                if (doc.exists) {
-                    this.findNum(5,100,"right thruster");
-                } 
-            }).catch((error) => {
-                console.log("Error getting document:", error);
-            });
-        }
-=======
         this.setState(state => ({
             isBoughtRocket: true, balance: this.state.balance - 1000
         }));
@@ -190,7 +121,6 @@ class Store extends Component {
         this.setState(state => ({
             isBoughtRightStructure: true, balance: this.state.balance - 500
         }));
->>>>>>> 7890827bf39ca44c996f17ea0b7678df70b587f2
     }
 
     handleClickFuelTank() {
@@ -229,15 +159,11 @@ class Store extends Component {
     render() {
         return(
             <div className="background">
-<<<<<<< HEAD
-                <InfoBar userId={this.props.userId}/>
-=======
                 <div id="info-bar">
                     <DogeCoin id="doge-logo"></DogeCoin>
                     <div id="goal-text">GET ELON TO THE MOON</div>
                     <div id="cash-balance">$ {this.state.balance}</div>
                 </div>
->>>>>>> 7890827bf39ca44c996f17ea0b7678df70b587f2
                 <NavBar></NavBar>
                 <div id="parts-container">  
                     <a onClick={this.handleClickRocket} id="atag">
