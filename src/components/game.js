@@ -10,28 +10,6 @@ import {ReactComponent as DogeClicker} from '../styles/graphics/doge-click.svg';
 import { ReactComponent as DogeCoin } from '../styles/graphics/dogecoin.svg';
 import NavBar from './navbar';
 
-//souds
-//import useSound from 'use-sound';
-//import Owa from '../styles/sounds/owa.mp3';
-//import Bonk from '../styles/sounds/bonk.mp3';
-//import Wow from '../styles/sounds/wow.mp3';
-
-const maxes = [1,1,1,1,1,1,1,1,10,10]; 
-const generateRandom = () => {
-    var max = 1;
-    max = maxes[Math.floor(Math.random() * maxes.length)];
-    var min = 0.01;
-    var random = (Math.random() * (max-min) + min).toFixed(2)
-    console.log(random);
-
-    crashVal = random;
-
-    return random;
-} 
-
-const crashChances = [1,1,1,1,1,1,1,1,1,2]; 
-var crashVal = 0;
-
 class Game extends React.Component {
 
     constructor(props) {
@@ -62,11 +40,14 @@ class Game extends React.Component {
     }
     
     getInsider(crashPrice) {
+        console.log(crashPrice);
         var crashChanceVal =  crashChances[Math.floor(Math.random() * crashChances.length)];
         var insiderInfo = "";
+        crashPrice = Number(crashPrice) + Math.floor((Math.random() * 10)+1)/100;
         console.log(crashChanceVal);
+        console.log(crashPrice);
         if (crashChanceVal == 2) {
-            insiderInfo = "Insider Info: " + "\n" + " Crash at $" + String(crashPrice);
+            insiderInfo = "Insider Info: " + "\n" + " Crash around $" + String(crashPrice.toFixed(2));
         } else {
             insiderInfo = "";
         }
@@ -159,7 +140,7 @@ class Game extends React.Component {
                 </div>
                 <div id="game-container">
                     <div id="stats">
-                        <p id="doge-price" className="insider">{this.state.insider}</p>
+                        <p className="insider">{this.state.insider}</p>
                         <p id="doge-price">Price: $ {this.state.price} <nobr id="crashed">{this.state.crashed}</nobr> </p>
                         <p id="doge-price">Dogecoins: {this.state.dogeCoins}</p>
                         <p id="doge-price">Profit: {this.state.profit}</p>
@@ -187,6 +168,25 @@ class Game extends React.Component {
     }
 
 }
+
+
+
+const maxes = [1,1,1,1,1,1,1,1,10,10]; 
+const generateRandom = () => {
+    var max = 1;
+    max = maxes[Math.floor(Math.random() * maxes.length)];
+    var min = 0.01;
+    var random = (Math.random() * (max-min) + min).toFixed(2)
+    //console.log(random);
+
+    crashVal = random;
+
+    return random;
+} 
+
+const crashChances = [1,1,1,1,1,1,1,1,1,2]; 
+var crashVal = 0;
+
 
 
 export default Game;
