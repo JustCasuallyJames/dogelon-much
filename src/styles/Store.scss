@@ -4,6 +4,7 @@
     mix-blend-mode: normal;
     min-width: 100vh;
     min-height: 100vh;
+    overflow: scroll;
 }
 
 #atag{
@@ -12,3 +13,10 @@
     
     
 }
+
+#parts-container {
+    position: relative;
+    top: 130px;
+    margin-top: 20px;
+}
+

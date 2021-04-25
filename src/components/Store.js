@@ -19,6 +19,7 @@ import {ReactComponent as GrayFuelTank} from '../styles/graphics/Gray-Fuel-Tank.
 
 import db from '../firebase'
 import firebase from 'firebase'
+import NavBar from './navbar';
 
 class Store extends Component {
     constructor(props){
@@ -197,7 +198,8 @@ class Store extends Component {
         return(
             <div className="background">
                 <InfoBar/>
-                <div>  
+                <NavBar></NavBar>
+                <div id="parts-container">  
                     <a onClick={this.handleClickRocket} id="atag">
                         {this.state.isBoughtRocket ? <GrayRocketShip className="itemBox"/> : <RocketShip className="itemBox"/>}
                     </a>

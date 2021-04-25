@@ -29,13 +29,26 @@
     line-height: 28px;
 
     color: #FFFFFF;
+    text-align: center;
+}
+
+#elonmeter, #stats, #info-bar {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+     user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome, Edge, Opera and Firefox */
 }
 
 #game-container {
-    top: 50%;
-    transform: translateY(-50%);
+    top: 60%;
+    transform: translateY(-60%);
     width: 100%;
     position: absolute;
+    margin: 0 auto;
+    z-index: 0;
 }
 
 #doge-price {
@@ -50,7 +63,7 @@
 
 #start-btn-container {
     position: absolute;
-    top: 60%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -61,14 +74,32 @@
 }
 
 #start-menu {
-    margin: 0 auto;
+    top: 50px;
 }
 
-body {
-    overflow: hidden;
+.insider {
+    white-space: pre-line;
+    color: #B4AA99;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 48px;
+    line-height: 56px;
 }
 
 #game-btns {
     width: 400px;
     margin: 0 auto;
+    text-align: center;
+}
+
+#stats {
+    top: 100px;
+    position: relative;
+    text-align: center;
+    float: left;
+    margin-left: 50px;
+}
+
+#crashed {
+    color: red;
 }
