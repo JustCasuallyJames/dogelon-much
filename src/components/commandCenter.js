@@ -23,8 +23,8 @@ const CommandCenter = () => {
         <div id="background-gradient">
             <InfoBar></InfoBar>
             <NavBar/>
-            <button onClick={HandleTheGame}></button>
-            <button onClick={() => handleClickGame('/stonk-game')} id="stock-button">Stonks</button>
+            {/* <button onClick={HandleTheGame}></button> */}
+            {/* <button onClick={() => handleClickGame('/stonk-game')} id="stock-button">Stonks</button> */}
             <Stars id="stars"></Stars>
             <LaunchButton id="launch-button"></LaunchButton>
             <Grass id="grass"></Grass>

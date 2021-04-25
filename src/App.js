@@ -14,6 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={CommandCenter}></Route> 
           <Route path="/stonk-game" component={Game}></Route>
+          <Route path="/store" component={Store}></Route>
       
         </Switch>
       </BrowserRouter>
