@@ -20,6 +20,7 @@ import {ReactComponent as GrayFuelTank} from '../styles/graphics/Gray-Fuel-Tank.
 import db from '../firebase'
 import firebase from 'firebase'
 import NavBar from './navbar';
+import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from 'react-dom';
 
 class Store extends Component {
     constructor(props){
@@ -32,7 +33,6 @@ class Store extends Component {
             isBoughtLeftStructure: false,
             isBoughtFuelTank: false,
             name: "",
-            docId: 0,
             numFound: false
         }
 
@@ -47,8 +47,8 @@ class Store extends Component {
     }
 
     findNum=(num, price, item)=>{
-        if (this.state.docId != 0){
-            var rocketRef = db.collection("users").doc(this.state.docId);
+        if (this.props.userId != 0){
+            var rocketRef = db.collection("users").doc(this.props.userId);
             rocketRef.get().then((doc) => {
                 if (doc.exists) {
                     for(var i = 0; i < doc.data().notPurchased.length; i++){
@@ -94,8 +94,8 @@ class Store extends Component {
     }
     handleClickRocket() {
 
-        if (this.state.docId != 0){
-            var rocketRef = db.collection("users").doc(this.state.docId);
+        if (this.props.userId != 0){
+            var rocketRef = db.collection("users").doc(this.props.userId);
             rocketRef.get().then((doc) => {
                 if (doc.exists) {
                     this.findNum(1,100, "rocket");
@@ -108,8 +108,8 @@ class Store extends Component {
 
     handleClickLeftThruster() {
 
-        if (this.state.docId != 0){
-            var leftThrusterRef = db.collection("users").doc(this.state.docId);
+        if (this.props.userId != 0){
+            var leftThrusterRef = db.collection("users").doc(this.props.userId);
             leftThrusterRef.get().then((doc) => {
                 if (doc.exists) {
                     this.findNum(2,100,"left thruster");
@@ -122,8 +122,8 @@ class Store extends Component {
 
     handleClickLeftStructure() {
 
-        if (this.state.docId != 0){
-            var leftStructureRef = db.collection("users").doc(this.state.docId);
+        if (this.props.userId != 0){
+            var leftStructureRef = db.collection("users").doc(this.props.userId);
             leftStructureRef.get().then((doc) => {
                 if (doc.exists) {
                     this.findNum(3,100,"left structure");
@@ -136,8 +136,8 @@ class Store extends Component {
 
     handleClickRightStructure() {
 
-        if (this.state.docId != 0){
-            var rightStructureRef = db.collection("users").doc(this.state.docId);
+        if (this.props.userId != 0){
+            var rightStructureRef = db.collection("users").doc(this.props.userId);
             rightStructureRef.get().then((doc) => {
                 if (doc.exists) {
                     this.findNum(4,100, "right structure");
@@ -150,8 +150,8 @@ class Store extends Component {
 
     handleClickRightThruster() {
 
-        if (this.state.docId != 0){
-            var rightThrusterRef = db.collection("users").doc(this.state.docId);
+        if (this.props.userId != 0){
+            var rightThrusterRef = db.collection("users").doc(this.props.userId);
             rightThrusterRef.get().then((doc) => {
                 if (doc.exists) {
                     this.findNum(5,100,"right thruster");
@@ -164,8 +164,8 @@ class Store extends Component {
 
     handleClickFuelTank() {
 
-        if (this.state.docId != 0){
-            var fuelTankRef = db.collection("users").doc(this.state.docId);
+        if (this.props.userId != 0){
+            var fuelTankRef = db.collection("users").doc(this.props.userId);
             fuelTankRef.get().then((doc) => {
                 if (doc.exists) {
                     this.findNum(6,100, "fuel tank");
@@ -188,16 +188,17 @@ class Store extends Component {
             money: 100,
             notPurchased: [1,2,3,4,5,6]
         }).then((docRef) => {
-            this.setState({
-                docId: docRef.id
-            })
+            // this.setState({
+            //     docId: docRef.id
+            // })
+            this.props.setUserId(docRef.id);
         })
     }
 
     render() {
         return(
             <div className="background">
-                <InfoBar/>
+                <InfoBar userId={this.props.userId}/>
                 <NavBar></NavBar>
                 <div id="parts-container">  
                     <a onClick={this.handleClickRocket} id="atag">
@@ -219,6 +220,20 @@ class Store extends Component {
                         {this.state.isBoughtFuelTank ? <GrayFuelTank className="itemBox"/> : <FuelTank className="itemBox"/>}
                     </a>
                 </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>                
+                <br/>
+                <br/>
+                <br/>                
+                <br/>
                 <div>
                     <input type="text" onChange={this.handleText}/>
                     <br/>

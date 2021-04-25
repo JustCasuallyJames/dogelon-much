@@ -10,7 +10,7 @@ import NavBar from './navbar';
 
 import fire from '../firebase';
 
-const CommandCenter = () => {
+const CommandCenter = ({userId}) => {
 
 
     return (
