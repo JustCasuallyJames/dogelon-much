@@ -17,6 +17,9 @@ import {ReactComponent as GrayRightStructure} from '../styles/graphics/Gray-Righ
 import {ReactComponent as GrayRightThruster} from '../styles/graphics/Gray-Right-Booster.svg';
 import {ReactComponent as GrayFuelTank} from '../styles/graphics/Gray-Fuel-Tank.svg';
 
+import db from '../firebase'
+import firebase from 'firebase'
+
 class Store extends Component {
     constructor(props){
         super(props);
@@ -26,7 +29,9 @@ class Store extends Component {
             isBoughtRightThruster: false,
             isBoughtRightStructure: false,
             isBoughtLeftStructure: false,
-            isBoughtFuelTank: false
+            isBoughtFuelTank: false,
+            name: "",
+            docId: 0
         }
 
         //this binding is needed to make the this work in the callback
@@ -36,42 +41,104 @@ class Store extends Component {
         this.handleClickLeftThruster = this.handleClickLeftThruster.bind(this);
         this.handleClickRightThruster = this.handleClickRightThruster.bind(this);
         this.handleClickFuelTank = this.handleClickFuelTank.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleClickRocket() {
         this.setState(state => ({
             isBoughtRocket: true
         }));
+        var rocketRef = db.collection("users").doc(this.state.docId);
+
+        // Set the "capital" field of the city 'DC'
+        // Atomically remove a region from the "regions" array field.
+        rocketRef.update({
+            notPurchased: firebase.firestore.FieldValue.arrayRemove(1)
+        });
     }
 
     handleClickLeftThruster() {
         this.setState(state => ({
             isBoughtLeftThruster: true
         }));
-    }
+        var leftThrusterRef = db.collection("users").doc(this.state.docId);
 
-    handleClickRightThruster() {
-        this.setState(state => ({
-            isBoughtRightThruster: true
-        }));
+        // Set the "capital" field of the city 'DC'
+        // Atomically remove a region from the "regions" array field.
+        leftThrusterRef.update({
+            notPurchased: firebase.firestore.FieldValue.arrayRemove(2)
+        });
     }
 
     handleClickLeftStructure() {
         this.setState(state => ({
             isBoughtLeftStructure: true
         }));
+        var rightPlatformRef = db.collection("users").doc(this.state.docId);
+
+        // Set the "capital" field of the city 'DC'
+        // Atomically remove a region from the "regions" array field.
+        rightPlatformRef.update({
+            notPurchased: firebase.firestore.FieldValue.arrayRemove(3)
+        });
     }
 
     handleClickRightStructure() {
         this.setState(state => ({
             isBoughtRightStructure: true
         }));
+        var rightStructureRef = db.collection("users").doc(this.state.docId);
+
+        // Set the "capital" field of the city 'DC'
+        // Atomically remove a region from the "regions" array field.
+        rightStructureRef.update({
+            notPurchased: firebase.firestore.FieldValue.arrayRemove(4)
+        });
+    }
+
+    handleClickRightThruster() {
+        this.setState(state => ({
+            isBoughtRightThruster: true
+        }));
+        var leftPlatformRef = db.collection("users").doc(this.state.docId);
+
+        // Set the "capital" field of the city 'DC'
+        // Atomically remove a region from the "regions" array field.
+        leftPlatformRef.update({
+            notPurchased: firebase.firestore.FieldValue.arrayRemove(5)
+        });
     }
 
     handleClickFuelTank() {
         this.setState(state => ({
             isBoughtFuelTank: true
         }));
+        var fuelTankRef = db.collection("users").doc(this.state.docId);
+
+        // Set the "capital" field of the city 'DC'
+        // Atomically remove a region from the "regions" array field.
+        fuelTankRef.update({
+            notPurchased: firebase.firestore.FieldValue.arrayRemove(6),
+
+        });
+    }
+
+    handleText=e=>{
+        this.setState({
+            name: e.target.value
+        });
+    }
+
+    handleSubmit=e=>{ 
+        var id = db.collection("users").add({
+            username: this.state.name,
+            money: 100,
+            notPurchased: [1,2,3,4,5,6]
+        }).then((docRef) => {
+            this.setState({
+                docId:docRef.id
+            })
+        })
     }
 
     render() {
@@ -97,6 +164,11 @@ class Store extends Component {
                     <a onClick={this.handleClickFuelTank} id="atag">
                         {this.state.isBoughtFuelTank ? <GrayFuelTank className="itemBox"/> : <FuelTank className="itemBox"/>}
                     </a>
+                </div>
+                <div>
+                    <input type="text" onChange={this.handleText}/>
+                    <br/>
+                    <button onClick={this.handleSubmit}> save </button>
                 </div>
             </div> 
         );

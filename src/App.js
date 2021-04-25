@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/" component={CommandCenter}></Route> 
           <Route path="/stonk-game" component={Game}></Route>
