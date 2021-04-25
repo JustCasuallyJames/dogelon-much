@@ -40,12 +40,12 @@ class Game extends React.Component {
     }
     
     getInsider(crashPrice) {
-        console.log(crashPrice);
+        //console.log(crashPrice);
         var crashChanceVal =  crashChances[Math.floor(Math.random() * crashChances.length)];
         var insiderInfo = "";
         crashPrice = Number(crashPrice) + Math.floor((Math.random() * 10)+1)/100;
-        console.log(crashChanceVal);
-        console.log(crashPrice);
+        //console.log(crashChanceVal);
+        //console.log(crashPrice);
         if (crashChanceVal == 2) {
             insiderInfo = "Insider Info: " + "\n" + " Crash around $" + String(crashPrice.toFixed(2));
         } else {

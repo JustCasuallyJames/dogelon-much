@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import '../styles/Store.scss'
 import InfoBar from './infobar';
+import { ReactComponent as DogeCoin } from '../styles/graphics/dogecoin.svg';
+
 //non gray components
 import {ReactComponent as RocketShip} from '../styles/graphics/Rocket-Ship-Item.svg';
 import {ReactComponent as LeftThruster} from '../styles/graphics/Left-Thruster-Item.svg';
@@ -32,8 +34,12 @@ class Store extends Component {
             isBoughtRightStructure: false,
             isBoughtLeftStructure: false,
             isBoughtFuelTank: false,
+<<<<<<< HEAD
             name: "",
             numFound: false
+=======
+            balance : 3700
+>>>>>>> 7890827bf39ca44c996f17ea0b7678df70b587f2
         }
 
         //this binding is needed to make the this work in the callback
@@ -93,6 +99,7 @@ class Store extends Component {
         }
     }
     handleClickRocket() {
+<<<<<<< HEAD
 
         if (this.props.userId != 0){
             var rocketRef = db.collection("users").doc(this.props.userId);
@@ -160,6 +167,35 @@ class Store extends Component {
                 console.log("Error getting document:", error);
             });
         }
+=======
+        this.setState(state => ({
+            isBoughtRocket: true, balance: this.state.balance - 1000
+        }));
+    }
+
+    handleClickLeftThruster() {
+        this.setState(state => ({
+            isBoughtLeftThruster: true, balance: this.state.balance - 500
+        }));
+    }
+
+    handleClickRightThruster() {
+        this.setState(state => ({
+            isBoughtRightThruster: true, balance: this.state.balance - 500
+        }));
+    }
+
+    handleClickLeftStructure() {
+        this.setState(state => ({
+            isBoughtLeftStructure: true, balance: this.state.balance - 500
+        }));
+    }
+
+    handleClickRightStructure() {
+        this.setState(state => ({
+            isBoughtRightStructure: true, balance: this.state.balance - 500
+        }));
+>>>>>>> 7890827bf39ca44c996f17ea0b7678df70b587f2
     }
 
     handleClickFuelTank() {
@@ -198,7 +234,15 @@ class Store extends Component {
     render() {
         return(
             <div className="background">
+<<<<<<< HEAD
                 <InfoBar userId={this.props.userId}/>
+=======
+                <div id="info-bar">
+                    <DogeCoin id="doge-logo"></DogeCoin>
+                    <div id="goal-text">GET ELON TO THE MOON</div>
+                    <div id="cash-balance">$ {this.state.balance}</div>
+                </div>
+>>>>>>> 7890827bf39ca44c996f17ea0b7678df70b587f2
                 <NavBar></NavBar>
                 <div id="parts-container">  
                     <a onClick={this.handleClickRocket} id="atag">

@@ -13,6 +13,8 @@
     right: 120px;
     bottom: 120px;
     filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    z-index: 100;
 }
 
 #grass {
@@ -31,4 +33,24 @@
     position: absolute;
     height: 100%;
     overflow: hidden;
+}
+
+#shuttleOff {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+#shuttleOn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#platforms {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0px;
 }
