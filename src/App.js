@@ -3,7 +3,8 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom';
 import CommandCenter from './components/commandCenter';
 import Game from './components/game';
-import Store from './components/Store'
+import Store from './components/Store';
+import Login from './components/login';
 
 
 function App() {
