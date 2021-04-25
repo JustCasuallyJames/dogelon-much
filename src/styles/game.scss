@@ -16,10 +16,24 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    
+}
+
+#elonmeter {
+    
+    float: right;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
 }
 
 #game-container {
-    bottom: 50px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
     position: absolute;
 }
@@ -36,15 +50,14 @@
 
 #start-btn-container {
     position: absolute;
-    top: 70%;
+    top: 60%;
     left: 50%;
     transform: translateX(-50%);
-
-    
 }
 
-button {
+.btn {
     outline: none;
+    margin: 10px;
 }
 
 #start-menu {
@@ -53,4 +66,9 @@ button {
 
 body {
     overflow: hidden;
+}
+
+#game-btns {
+    width: 400px;
+    margin: 0 auto;
 }

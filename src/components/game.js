@@ -32,7 +32,8 @@ class Game extends React.Component {
             totalCost: 0.00,
             gameOpacity: 0,
             menuOpacity: 1,
-            buyEnable: false
+            buyEnable: false,
+            buyAmount: 5
         }
         this.animateMusk = this.animateMusk.bind(this);
         this.start = this.start.bind(this);
@@ -59,18 +60,19 @@ class Game extends React.Component {
 
     buyCoin() {
         if (this.state.buyEnable == true) {
-            if (Number(this.state.balance))
-            var cost = this.state.price;
-            var newBalance = +(this.state.balance - cost).toFixed(2);
-            var newTotalCost = this.state.totalCost + cost;
-            this.setState({dogeCoins: this.state.dogeCoins+10, balance: newBalance, totalCost: newTotalCost})
+            var cost = Number(this.state.price) * Number(this.state.buyAmount);
+            if (Number(this.state.balance)-cost >= 0){
+                var newBalance = +(this.state.balance - cost).toFixed(2);
+                var newTotalCost = this.state.totalCost + cost;
+                this.setState({dogeCoins: this.state.dogeCoins+this.state.buyAmount, balance: newBalance, totalCost: newTotalCost})
+            }        
         }
     }
 
     handleCrash() {
         if (this.state.price == this.state.limitValue) {
             clearInterval(this.interval);
-            this.setState({buyEnable: false})
+            this.setState({buyEnable: false, elon: SadElon})
 
         }
     }
@@ -83,14 +85,15 @@ class Game extends React.Component {
             this.animateMusk();
             this.handleCrash();
             this.calculateProfit();
-        }, 200);
+        }, 500);
     }
 
     sellAll() {
         if (this.state.buyEnable == true) {
             clearInterval(this.interval);
             
-            var newBalance = (Number(this.state.balance) + Number(this.state.profit)).toFixed(2);
+            var newBalance = (Number(this.state.balance) + 
+                Number(this.state.profit) + Number(this.state.totalCost)).toFixed(2);
             this.setState(
                 {
                     balance: newBalance,
@@ -109,7 +112,8 @@ class Game extends React.Component {
                 price : 0.01,
                 profit: 0.01,
                 totalCost: 0.00,
-                buyEnable: true
+                buyEnable: true,
+                elon: HappyElon
             }
         )
         this.start();
@@ -126,20 +130,27 @@ class Game extends React.Component {
                 </div>
 
                 <div id="game-container" style={{opacity: this.state.gameOpacity}}>
-                    <p id="doge-price">crash (developer): $ {this.state.limitValue}</p>
-                    <p id="doge-price">Price: $ {this.state.price}</p>
-                    <p id="doge-price">Dogecoins: {this.state.dogeCoins}</p>
-                    <p id="doge-price">Profit: {this.state.profit}</p>
-                    <DogeClicker id="doge-clicker" onClick={this.buyCoin}></DogeClicker>
-                    <img src={this.state.elon} id="elon"></img>
-                    <button type="button" class="btn btn-danger btn-lg"
-                        id="sell-btn" onClick={this.sellAll}>
-                        Sell All
-                    </button>
-                    <button class="btn btn-info btn-lg"
-                        id="play-again-btn" onClick={this.playAgain}>
-                        Play Again
-                    </button>
+                    <div id="stats">
+                        {/*<p id="doge-price">crash (developer): $ {this.state.limitValue}</p>*/}
+                        <p id="doge-price">Price: $ {this.state.price}</p>
+                        <p id="doge-price">Dogecoins: {this.state.dogeCoins}</p>
+                        <p id="doge-price">Profit: {this.state.profit}</p>
+                    </div>
+                    <div id="elonmeter">
+                        <img src={this.state.elon} id="elon"></img>
+                        <p>ELON-METER</p>
+                    </div>
+                    <div id="game-btns">
+                        <DogeClicker id="doge-clicker" onClick={this.buyCoin}></DogeClicker>
+                        <button type="button" class="btn btn-danger btn-lg"
+                            id="sell-btn" onClick={this.sellAll}>
+                            Sell All
+                        </button>
+                        <button class="btn btn-info btn-lg"
+                            id="play-again-btn" onClick={this.playAgain}>
+                            Play Again
+                        </button>
+                    </div>
                 </div>
 
                 <div id="start-menu" style={{opacity: this.state.menuOpacity}}>

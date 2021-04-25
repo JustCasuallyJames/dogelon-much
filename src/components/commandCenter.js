@@ -14,14 +14,9 @@ const CommandCenter = () => {
         history.push(foo)
     }
 
-    const HandleTheGame = () => {
-        history.push('/stonk-game')
-    }
-
     return (
         <div id="background-gradient">
             <InfoBar></InfoBar>
-            <button onClick={HandleTheGame}></button>
             <button onClick={() => handleClickGame('/stonk-game')} id="stock-button">Stonks</button>
             <Stars id="stars"></Stars>
             <LaunchButton id="launch-button"></LaunchButton>
