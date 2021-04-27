@@ -1,11 +1,10 @@
 # dogelon much
+Dogelon Musk is a dogecoin clicker simulator. The player starts off with a base amount of money and is able to buy and sell dogecoin by clicking it to earn profit. The money you make will be used to buy rocket parts to send Elon Musk to the moon. However, if the user clicks too many times the price of dogecoin may drop and the player may lose all of their profit.
 
 ## Website
 https://justcasuallyjames.github.io/dogelon-much/
 ## Inspiration
 We were inspired by the recent dogecoin craze and how Elon Musk always praises it on social media and the popular web game Cookie Clicker.
-## What it does
-Dogelon Musk is a dogecoin clicker simulator. The player starts off with a base amount of money and is able to buy and sell dogecoin by clicking it to earn profit. The money you make will be used to buy rocket parts to send Elon Musk to the moon. However, if the user clicks too many times the price of dogecoin may drop and the player may lose all of their profit.
 ## How we built it
 We used Reactjs, Google Firestore, Node.js, Figma, and scss.
 ## Challenges we ran into
